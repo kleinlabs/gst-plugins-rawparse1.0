@@ -1,9 +1,7 @@
-Source: gst-plugins-bad1.0
+Source: gst-plugins-rawparse1.0
 Section: libs
 Priority: extra
-Maintainer: Maintainers of GStreamer packages <pkg-gstreamer-maintainers@lists.alioth.debian.org>
-Uploaders: Sebastian Dröge <slomo@debian.org>,
-           Sjoerd Simons <sjoerd@debian.org>
+Maintainer: Cristian Klein <cristian@kleinlabs.eu>
 Build-Depends: autoconf (>= 2.69),
                automake (>= 1.14),
                autopoint (>= 0.17),
@@ -12,134 +10,32 @@ Build-Depends: autoconf (>= 2.69),
                debhelper (>= 9),
                dh-autoreconf,
                dpkg-dev (>= 1.15.1),
-               flite-dev,
-               gir1.2-freedesktop,
-               gir1.2-glib-2.0,
-               gir1.2-gst-plugins-base-1.0,
-               gir1.2-gstreamer-1.0,
-               gobject-introspection (>= 0.9.12-4~),
-               libasound2-dev (>= 0.9.1) [linux-any],
-               libcdaudio-dev [linux-any],
-               libdc1394-22-dev (>= 2.0.0) [linux-any],
-               libgudev-1.0-dev (>= 143) [linux-any],
-               libusb-1.0-0-dev [linux-any],
-               libbluetooth-dev (>= 5) [linux-any],
-               libsbc-dev (>= 1.1) [linux-any],
-               libwayland-dev (>= 1.0) [linux-any],
-               wayland-protocols [linux-any],
-               libgstreamer1.0-dev (>= 1.10.0),
-               gstreamer1.0-doc,
                gstreamer1.0-plugins-base (>= 1.10.0),
-               gstreamer1.0-plugins-base-doc,
-               gtk-doc-tools (>= 1.12),
-               ladspa-sdk,
-               libass-dev (>= 0.10.4),
-               libbs2b-dev,
-               libbz2-dev,
-               libcairo2-dev,
-               libchromaprint-dev,
-               libcurl4-gnutls-dev (>= 7.35.0),
-               libdca-dev,
-               libde265-dev,
-               libdrm-dev [!hurd-any],
-               libdvdnav-dev (>= 4.1.2) [!hurd-any],
-               libegl1-mesa-dev,
-               libexempi-dev,
-               libexif-dev (>= 0.6.16),
-               libfaad-dev (>= 2.7),
-               libfluidsynth-dev (>= 1.0),
-               libgirepository1.0-dev (>= 0.9.12-4~),
-               libgl1-mesa-dev,
-               libgles2-mesa-dev,
                libglib2.0-dev (>= 2.40),
-               libglu1-mesa-dev,
-               libgme-dev,
-               libgnutls28-dev (>= 2.11.3),
-               libgsm1-dev,
                libgstreamer-plugins-base1.0-dev (>= 1.10.0),
-               libgtk-3-dev (>= 3.15.0),
-               libiptcdata0-dev (>= 1.0.2),
-               libkate-dev (>= 0.1.7),
-               liblilv-dev (>= 0.16),
-               libmjpegtools-dev,
-               libmms-dev (>= 0.4),
-               libmodplug-dev,
-               libmpcdec-dev,
-               libofa0-dev (>= 0.9.3),
-               libopenal-dev (>= 1:1.14),
-               libopencv-dev (>= 2.3.0),
-               libopenexr-dev,
-               libopenjp2-7-dev,
-               libopus-dev (>= 0.9.4),
                liborc-0.4-dev (>= 1:0.4.17),
-               libpng-dev,
-               librsvg2-dev (>= 2.36.2),
-               librtmp-dev,
-               libsndfile1-dev (>= 1.0.16),
-               libsoundtouch-dev (>= 1.5.0),
-               libspandsp-dev,
-               libsrtp0-dev,
-               libssl-dev,
                libtool (>= 2.2.6),
-               libvo-aacenc-dev,
-               libvo-amrwbenc-dev,
-               libwebp-dev (>= 0.2.1),
-               libwebrtc-audio-processing-dev (>= 0.2),
-               libwildmidi-dev (>= 0.2.3),
-               libx11-dev,
-               libx265-dev,
-               libxml2-dev (>= 2.8),
-               libxvidcore-dev,
-               libzbar-dev (>= 0.9),
-               libzvbi-dev,
-               nettle-dev,
                pkg-config (>= 0.11.0)
 Standards-Version: 3.9.3
-Vcs-Git: git://anonscm.debian.org/pkg-gstreamer/gst-plugins-bad1.0.git
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-gstreamer/gst-plugins-bad1.0.git;a=summary
 Homepage: http://gstreamer.freedesktop.org/modules/gst-plugins-bad.html
-
-Package: gstreamer1.0-plugins-bad-doc
-Architecture: all
-Multi-Arch: foreign
-Section: doc
-Depends: ${misc:Depends},
-         gstreamer1.0-doc,
-         gstreamer1.0-plugins-base-doc
-Description: GStreamer documentation for plugins from the "bad" set
- GStreamer is a streaming media framework, based on graphs of filters
- which operate on media data.  Applications using this library can do
- anything from real-time sound processing to playing videos, and just
- about anything else media-related.  Its plugin-based architecture means
- that new data types or processing capabilities can be added simply by
- installing new plug-ins.
- .
- GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
- to the rest. They might be close to being good quality, but they're missing
- something - be it a good code review, some documentation, a set of tests, a
- real live maintainer, or some actual wide use.
- .
- This package contains the documentation for plugins from the "bad" set.
  
-Package: gstreamer1.0-plugins-bad
+Package: gstreamer1.0-plugins-rawparse
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends},
          ${shlibs:Depends},
          gstreamer1.0-plugins-base,
-         libgstreamer-plugins-bad1.0-0 (= ${binary:Version}),
 Provides: ${gstreamer:Provides}
-Suggests: frei0r-plugins
 Replaces: gstreamer1.0-plugins-base (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2)
-Breaks: gstreamer1.0-plugins-base (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2)
+Breaks: gstreamer1.0-plugins-base (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2), gstreamer1.0-plugins-bad
 XB-GStreamer-Version: ${gstreamer:Version}
 XB-GStreamer-Elements: ${gstreamer:Elements}
 XB-GStreamer-URI-Sources: ${gstreamer:URISources}
 XB-GStreamer-URI-Sinks: ${gstreamer:URISinks}
 XB-GStreamer-Encoders: ${gstreamer:Encoders}
 XB-GStreamer-Decoders: ${gstreamer:Decoders}
-Description: GStreamer plugins from the "bad" set
+Description: GStreamer plugins from the "rawparse" set
  GStreamer is a streaming media framework, based on graphs of filters
  which operate on media data.  Applications using this library can do
  anything from real-time sound processing to playing videos, and just
@@ -152,16 +48,16 @@ Description: GStreamer plugins from the "bad" set
  something - be it a good code review, some documentation, a set of tests, a
  real live maintainer, or some actual wide use.
 
-Package: gstreamer1.0-plugins-bad-dbg
+Package: gstreamer1.0-plugins-rawparse-dbg
 Architecture: any
 Multi-Arch: same
 Section: debug
 Priority: extra
-Depends: gstreamer1.0-plugins-bad (= ${binary:Version}),
+Depends: gstreamer1.0-plugins-rawparse (= ${binary:Version}),
          ${misc:Depends}
 Replaces: gstreamer1.0-plugins-base-dbg (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2)
-Breaks: gstreamer1.0-plugins-base-dbg (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2)
-Description: GStreamer plugins from the "bad" set (debug symbols)
+Breaks: gstreamer1.0-plugins-base-dbg (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2), gstreamer1.0-plugins-bad
+Description: GStreamer plugins from the "rawparse" set (debug symbols)
  GStreamer is a streaming media framework, based on graphs of filters
  which operate on media data.  Applications using this library can do
  anything from real-time sound processing to playing videos, and just
@@ -173,77 +69,3 @@ Description: GStreamer plugins from the "bad" set (debug symbols)
  to provide a backtrace with names in a debugger, this makes it somewhat
  easier to interpret core dumps. The libraries are installed in
  /usr/lib/debug and are automatically used by gdb.
-
-Package: libgstreamer-plugins-bad1.0-0
-Architecture: any
-Section: libs
-Priority: extra
-Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends},
-Description: GStreamer development files for libraries from the "bad" set
- GStreamer is a streaming media framework, based on graphs of filters
- which operate on media data.  Applications using this library can do
- anything from real-time sound processing to playing videos, and just
- about anything else media-related.  Its plugin-based architecture means
- that new data types or processing capabilities can be added simply by
- installing new plug-ins.
- .
- GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
- to the rest. They might be close to being good quality, but they're missing
- something - be it a good code review, some documentation, a set of tests, a
- real live maintainer, or some actual wide use.
- .
- This package contains shared GStreamer libraries from the "bad" set. The API
- is not guaranteed to be stable.
-
-Package: libgstreamer-plugins-bad1.0-dev
-Architecture: any
-Section: libdevel
-Priority: extra
-Depends: ${misc:Depends},
-         libgstreamer-plugins-bad1.0-0 (= ${binary:Version}),
-         libgstreamer1.0-dev,
-         libgstreamer-plugins-base1.0-dev,
-         gir1.2-gst-plugins-bad-1.0 (= ${binary:Version})
-Description: GStreamer development files for libraries from the "bad" set
- GStreamer is a streaming media framework, based on graphs of filters
- which operate on media data.  Applications using this library can do
- anything from real-time sound processing to playing videos, and just
- about anything else media-related.  Its plugin-based architecture means
- that new data types or processing capabilities can be added simply by
- installing new plug-ins.
- .
- GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
- to the rest. They might be close to being good quality, but they're missing
- something - be it a good code review, some documentation, a set of tests, a
- real live maintainer, or some actual wide use.
- .
- This package contains development files for GStreamer libraries from the
- "bad" set. The API is not guaranteed to be stable.
-
-Package: gir1.2-gst-plugins-bad-1.0
-Section: introspection
-Architecture: any
-Depends: ${gir:Depends},
-         ${shlibs:Depends},
-         ${misc:Depends},
-         ${gir:Depends}
-Description: GObject introspection data for the GStreamer libraries from the "bad" set
- GStreamer is a streaming media framework, based on graphs of filters
- which operate on media data.  Applications using this library can do
- anything from real-time sound processing to playing videos, and just
- about anything else media-related.  Its plugin-based architecture means
- that new data types or processing capabilities can be added simply by
- installing new plug-ins.
- .
- GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
- to the rest. They might be close to being good quality, but they're missing
- something - be it a good code review, some documentation, a set of tests, a
- real live maintainer, or some actual wide use.
- .
- This package contains introspection data for the GStreamer libraries from
- the "bad" set. It can be used by packages using the GIRepository format to
- generate dynamic bindings.
-
